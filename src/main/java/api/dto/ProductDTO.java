@@ -1,4 +1,4 @@
-package api.version_1.dto;
+package api.dto;
 
 import lombok.Data;
 

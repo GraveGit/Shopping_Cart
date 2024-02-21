@@ -1,10 +1,9 @@
-package api.version_1.controller;
+package api.controller.v1;
 
-import api.version_1.service.CustomerService;
-import api.version_1.dto.CustomerDTO;
-import api.version_1.entity.Customer;
+import api.service.CustomerService;
+import api.dto.CustomerDTO;
+import api.entity.Customer;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,9 +32,9 @@ public class CustomerController {
     }
 
     @DeleteMapping("/{id}")
-    public HttpStatus delete(@PathVariable Integer id) {
+    public ResponseEntity<String> delete(@PathVariable Integer id) {
         customerService.delete(id);
-        return HttpStatus.OK;
+        return ResponseEntity.ok().build();
     }
 
 }

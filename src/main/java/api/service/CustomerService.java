@@ -1,19 +1,25 @@
-package api.version_1.service;
+package api.service;
 
-import lombok.AllArgsConstructor;
-import api.version_1.dto.CustomerDTO;
-import api.version_1.entity.Customer;
-import api.version_1.repository.CustomerRepository;
+import api.dto.CustomerDTO;
+import api.entity.Customer;
+import api.repository.CustomerRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class CustomerService {
 
     private final CustomerRepository customerRepository;
 
+    /**
+     * Создает нового клиента на основе переданных данных.
+     *
+     * @param dto данные клиента для создания
+     * @return созданный объект Customer
+     */
     public Customer create(CustomerDTO dto) {
         Customer customer = Customer.builder()
                 .name(dto.getName())

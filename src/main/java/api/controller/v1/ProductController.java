@@ -1,8 +1,8 @@
-package api.version_1.controller;
+package api.controller.v1;
 
-import api.version_1.dto.ProductDTO;
-import api.version_1.entity.Product;
-import api.version_1.service.ProductService;
+import api.service.ProductService;
+import api.dto.ProductDTO;
+import api.entity.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

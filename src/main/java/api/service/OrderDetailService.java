@@ -1,15 +1,15 @@
-package api.version_1.service;
+package api.service;
 
-import api.version_1.dto.OrderDetailDTO;
-import api.version_1.entity.OrderDetail;
-import api.version_1.repository.OrderDetailRepository;
-import lombok.AllArgsConstructor;
+import api.dto.OrderDetailDTO;
+import api.entity.OrderDetail;
+import api.repository.OrderDetailRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class OrderDetailService {
 
     private final OrderDetailRepository orderDetailRepository;

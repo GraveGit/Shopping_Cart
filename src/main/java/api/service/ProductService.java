@@ -1,15 +1,15 @@
-package api.version_1.service;
+package api.service;
 
-import lombok.AllArgsConstructor;
-import api.version_1.dto.ProductDTO;
-import api.version_1.entity.Product;
-import api.version_1.repository.ProductRepository;
+import api.dto.ProductDTO;
+import api.entity.Product;
+import api.repository.ProductRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class ProductService {
 
     private final ProductRepository productRepository;
@@ -30,7 +30,7 @@ public class ProductService {
     }
 
     public Product readById(Integer id) {
-        return  productRepository.findById(id).orElseThrow(() ->
+        return productRepository.findById(id).orElseThrow(() ->
                 new RuntimeException("Cannot find product by id" + id));
     }
 
