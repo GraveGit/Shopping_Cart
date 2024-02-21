@@ -1,4 +1,4 @@
-package api.version_1.entity;
+package api.entity;
 
 import lombok.*;
 
@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "customer")
 public class Customer {
 
     @Id

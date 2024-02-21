@@ -1,4 +1,4 @@
-package api.version_1.config;
+package api.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -15,7 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 @EnableWebMvc
-@EnableJpaRepositories(basePackages = "api.version_1.repository")
+@EnableJpaRepositories(basePackages = "api.repository")
 @EnableTransactionManagement
 public class SwaggerConfig {
 
@@ -23,7 +23,7 @@ public class SwaggerConfig {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("api.version_1.controller"))
+                .apis(RequestHandlerSelectors.basePackage("api.controller"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(apiInfo());

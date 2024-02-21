@@ -1,7 +1,8 @@
-package api.version_1.entity;
+package api.entity;
 
+import api.enumclass.OrderStatus;
+import api.enumclass.PaymentMethod;
 import lombok.*;
-import api.version_1.Enums;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -23,11 +24,11 @@ public class Order {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "order_status")
-    private Enums.OrderStatus orderStatus;
+    private OrderStatus orderStatus;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "payment_method")
-    private Enums.PaymentMethod paymentMethod;
+    private PaymentMethod paymentMethod;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")

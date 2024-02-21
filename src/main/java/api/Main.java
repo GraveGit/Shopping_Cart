@@ -1,4 +1,4 @@
-package api.version_1;
+package api;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

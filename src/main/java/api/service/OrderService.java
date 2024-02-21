@@ -1,15 +1,15 @@
-package api.version_1.service;
+package api.service;
 
-import api.version_1.entity.Order;
-import lombok.AllArgsConstructor;
-import api.version_1.dto.OrderDTO;
-import api.version_1.repository.OrderRepository;
+import api.entity.Order;
+import api.dto.OrderDTO;
+import api.repository.OrderRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class OrderService {
 
     private final OrderRepository orderRepository;
@@ -31,7 +31,7 @@ public class OrderService {
     }
 
     public Order readById(Integer id) {
-        return  orderRepository.findById(id).orElseThrow(() ->
+        return orderRepository.findById(id).orElseThrow(() ->
                 new RuntimeException("Cannot find order by id" + id));
     }
 

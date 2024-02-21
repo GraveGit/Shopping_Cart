@@ -1,4 +1,4 @@
-package api.version_1.entity;
+package api.entity;
 
 import lombok.*;
 
@@ -6,12 +6,13 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-//getter and seeter are here instead of the data
+//getter and setter are here instead of the data
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "order_detail")
 public class OrderDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

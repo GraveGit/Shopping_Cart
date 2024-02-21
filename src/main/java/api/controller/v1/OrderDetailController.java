@@ -1,10 +1,9 @@
-package api.version_1.controller;
+package api.controller.v1;
 
-import api.version_1.service.OrderDetailService;
-import api.version_1.dto.OrderDetailDTO;
-import api.version_1.entity.OrderDetail;
+import api.service.OrderDetailService;
+import api.dto.OrderDetailDTO;
+import api.entity.OrderDetail;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,8 +38,8 @@ public class OrderDetailController {
     }
 
     @DeleteMapping("/{id}")
-    public HttpStatus delete(@PathVariable Integer id) {
+    public ResponseEntity<String> delete(@PathVariable Integer id) {
         orderDetailService.delete(id);
-        return HttpStatus.OK;
+        return ResponseEntity.ok().build();
     }
 }

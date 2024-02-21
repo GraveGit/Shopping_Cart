@@ -1,4 +1,4 @@
-package api.version_1.entity;
+package api.entity;
 
 import lombok.*;
 
@@ -12,6 +12,7 @@ import java.util.Currency;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "product")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
