@@ -2,6 +2,7 @@ package api.service;
 
 import api.dto.ProductDTO;
 import api.entity.Product;
+import api.mapper.ProductMapper;
 import api.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,13 +16,7 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     public Product create(ProductDTO dto) {
-        Product product = Product.builder()
-                .name(dto.getName())
-                .price(dto.getPrice())
-                .description(dto.getDescription())
-                .inStock(dto.getInStock())
-                .build();
-
+        Product product = ProductMapper.INSTANCE.productDTOToProduct(dto);
         return productRepository.save(product);
     }
 

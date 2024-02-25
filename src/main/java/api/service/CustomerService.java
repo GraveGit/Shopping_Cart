@@ -2,7 +2,9 @@ package api.service;
 
 import api.dto.CustomerDTO;
 import api.entity.Customer;
+import api.mapper.CustomerMapper;
 import api.repository.CustomerRepository;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -21,13 +23,7 @@ public class CustomerService {
      * @return созданный объект Customer
      */
     public Customer create(CustomerDTO dto) {
-        Customer customer = Customer.builder()
-                .name(dto.getName())
-                .address(dto.getAddress())
-                .email(dto.getEmail())
-                .phone(dto.getPhone())
-                .build();
-
+        Customer customer = CustomerMapper.INSTANCE.customerDTOToCustomer(dto);
         return customerRepository.save(customer);
     }
 
@@ -36,8 +32,8 @@ public class CustomerService {
     }
 
     public Customer readById(Integer id) {
-        return  customerRepository.findById(id).orElseThrow(() ->
-        new RuntimeException("Cannot find customer by id" + id));
+        return customerRepository.findById(id).orElseThrow(() ->
+                new RuntimeException("Cannot find customer by id" + id));
     }
 
     public Customer update(Customer customer) {

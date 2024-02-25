@@ -1,11 +1,15 @@
 package api.service;
 
 import api.dto.OrderDetailDTO;
+import api.entity.Order;
 import api.entity.OrderDetail;
+import api.entity.Product;
+import api.mapper.OrderDetailMapper;
 import api.repository.OrderDetailRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -17,13 +21,12 @@ public class OrderDetailService {
     private final ProductService productService;
 
     public OrderDetail create(OrderDetailDTO dto) {
-        OrderDetail orderDetail = OrderDetail.builder()
-                .order(orderService.readById(dto.getOrderId()))
-                .product(productService.readById(dto.getProductId()))
-                .price(productService.readById(dto.getProductId()).getPrice())
-                .quantity(dto.getQuantity())
-                .build();
-
+        OrderDetail orderDetail = OrderDetailMapper.INSTANCE.orderDetailDTOToOrderDetail(dto);
+        Order order = orderService.readById(dto.getOrderId());
+        Product product = productService.readById(dto.getProductId());
+        orderDetail.setOrder(order);
+        orderDetail.setProduct(product);
+        //orderDetail.setPrice(product.getPrice());
         return orderDetailRepository.save(orderDetail);
     }
 
