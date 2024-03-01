@@ -5,7 +5,7 @@
 - Работа с БД должна быть организована через спринговый JpaRepository (пакет repository). Jpa-реализация - hibernate
 - в проекте должен быть Swagger
 
-Для работы реализовать rest controller-ы со следующим api:
+Для работы реализовать rest controller-ы со следующим shoppingcart:
 
 Order
 1) Создать заказ (пустой, без товаров)

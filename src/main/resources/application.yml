@@ -3,6 +3,8 @@ spring:
     url: jdbc:postgresql://localhost:5432/Shopping_Cart
     username: postgres
     password: um17tzno
+  liquibase:
+    change-log: classpath:db/changelog/changelog-master.xml
 
 server:
   port: 8081
