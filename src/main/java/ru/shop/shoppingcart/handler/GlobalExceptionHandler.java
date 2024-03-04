@@ -9,14 +9,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    // Custom exception for when a resource is not found
     public static class ResourceNotFoundException extends RuntimeException {
-        // You can add additional fields and methods if needed
     }
 
-    // Custom exception for all other exceptions
     public static class GeneralException extends RuntimeException {
-        // You can add additional fields and methods if needed
     }
 
     @ExceptionHandler(ResourceNotFoundException.class)

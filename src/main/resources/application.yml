@@ -5,6 +5,10 @@ spring:
     password: um17tzno
   liquibase:
     change-log: classpath:db/changelog/changelog-master.xml
+    drop-first: true
+  jpa:
+    hibernate:
+      ddl-auto: validate
 
 server:
-  port: 8081
+  port: 8080
