@@ -1,5 +1,7 @@
 FROM maven:3.6.3-jdk-11 as build
 
+ENV TZ=Europe/Moscow
+
 COPY /src /home/app/src
 COPY /pom.xml /home/app
 

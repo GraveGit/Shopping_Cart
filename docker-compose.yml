@@ -1,0 +1,6 @@
+version: '1'
+services:
+  web:
+    image: shopping-cart-image
+    ports:
+      - "8080:80"
