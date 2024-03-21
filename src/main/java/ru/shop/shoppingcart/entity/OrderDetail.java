@@ -6,7 +6,6 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-//getter and setter are here instead of the data
 @Getter
 @Setter
 @Builder

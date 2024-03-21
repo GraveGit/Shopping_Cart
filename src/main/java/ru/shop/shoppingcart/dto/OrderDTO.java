@@ -1,12 +1,15 @@
 package ru.shop.shoppingcart.dto;
 
+import lombok.*;
 import ru.shop.shoppingcart.enums.OrderStatus;
 import ru.shop.shoppingcart.enums.PaymentMethod;
-import lombok.Data;
 
 import java.time.LocalDate;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class OrderDTO {
     private LocalDate orderDate;
     private OrderStatus orderStatus;

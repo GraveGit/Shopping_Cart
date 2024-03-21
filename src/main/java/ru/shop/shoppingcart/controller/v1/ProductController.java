@@ -1,28 +1,29 @@
 package ru.shop.shoppingcart.controller.v1;
 
-import ru.shop.shoppingcart.service.ProductService;
-import ru.shop.shoppingcart.dto.ProductDTO;
-import ru.shop.shoppingcart.entity.Product;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.shop.shoppingcart.dto.ProductDTO;
+import ru.shop.shoppingcart.entity.Product;
+import ru.shop.shoppingcart.service.ProductService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/api/v1/products")
 @RequiredArgsConstructor
 public class ProductController {
 
     private final ProductService productService;
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<Product> create(@RequestBody ProductDTO dto) {
         return ResponseEntity.ok(productService.create(dto));
     }
 
-    @GetMapping
-    public ResponseEntity<List<Product>> readAll() {
+    @GetMapping("/")
+    public ResponseEntity<List<Product>> readAll(Pageable pageable) {
         return ResponseEntity.ok(productService.readAll());
     }
 

@@ -1,13 +1,13 @@
 package ru.shop.shoppingcart.service;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 import ru.shop.shoppingcart.dto.CustomerDTO;
 import ru.shop.shoppingcart.entity.Customer;
 import ru.shop.shoppingcart.mapper.CustomerMapper;
 import ru.shop.shoppingcart.repository.CustomerRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -31,8 +31,8 @@ public class CustomerService {
      *
      * @return Список всех клиентов.
      */
-    public List<Customer> readAll() {
-        return customerRepository.findAll();
+    public Page<Customer> readAll(Pageable pageable) {
+        return customerRepository.findAllBy(pageable);
     }
 
     /**
